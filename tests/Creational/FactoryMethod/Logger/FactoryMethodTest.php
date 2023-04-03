@@ -1,6 +1,6 @@
 <?php
 
-namespace Creational\FactoryMethod;
+namespace Creational\FactoryMethod\Logger;
 
 use DesignPatterns\Creational\FactoryMethod\Logger\FileLog\FileLogManagerAbstract;
 use DesignPatterns\Creational\FactoryMethod\Logger\StdoutLog\StdoutLogManagerAbstract;
@@ -28,7 +28,7 @@ class FactoryMethodTest extends TestCase
 
     public function test_stdout_log_manager()
     {
-        $expected = '[02/04/2023][debug]: Corrêa menagem de log';
+        $expected = '[' . date('d/m/Y') . '][debug]: Corrêa menagem de log';
         $this->expectOutputString($expected);
         $logManager = new StdoutLogManagerAbstract();
         $logManager->log(LogLevel::DEBUG, 'Corrêa menagem de log');
@@ -36,7 +36,7 @@ class FactoryMethodTest extends TestCase
 
     public function test_stdout_log_manager_context()
     {
-        $expected = '[02/04/2023][debug]: Corrêa menagem de log Array
+        $expected = '[' . date('d/m/Y') . '][debug]: Corrêa menagem de log Array
 (
     [message] => 1
 )';
@@ -52,7 +52,7 @@ class FactoryMethodTest extends TestCase
 
         $this->assertTrue(file_exists($this->pathfile));
 
-        $expected = '[02/04/2023][debug]: Corrêa menagem de log';
+        $expected = '[' . date('d/m/Y') . '][debug]: Corrêa menagem de log';
         $this->assertEquals($expected, file_get_contents($this->pathfile));
     }
 
@@ -63,7 +63,7 @@ class FactoryMethodTest extends TestCase
 
         $this->assertTrue(file_exists($this->pathfile));
 
-        $expected = '[02/04/2023][debug]: Corrêa menagem de log Array
+        $expected = '[' . date('d/m/Y') . '][debug]: Corrêa menagem de log Array
 (
     [message] => 1
 )';
