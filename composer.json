@@ -1,0 +1,24 @@
+{
+  "name": "marcelocorrea/design-patterns",
+  "description": "Design Patterns Gof",
+  "autoload": {
+    "psr-4": {
+      "DesignPatterns\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Marcelo Corrêa",
+      "email": "marcelocorrea229@gmail.com"
+    }
+  ],
+  "require": {
+    "psr/log": "^3.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0"
+  },
+  "scripts": {
+    "test": "./vendor/bin/phpunit"
+  }
+}
