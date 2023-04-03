@@ -1,6 +1,6 @@
 <?php
 
-namespace DesignPatterns\Creational\FactoryMethod\Logger\FileLog;
+namespace DesignPatterns\Creational\FactoryMethod\Logger\File;
 
 use DesignPatterns\Creational\FactoryMethod\Logger\AbstractLoggerManager;
 use Psr\Log\LoggerInterface;
@@ -11,8 +11,8 @@ class FileLogManagerAbstract extends AbstractLoggerManager
     {
     }
 
-    protected function createWritter(): LoggerInterface
+    protected function create(): LoggerInterface
     {
-        return new FileLogWritter($this->path);
+        return new FileLogWriter($this->path);
     }
 }

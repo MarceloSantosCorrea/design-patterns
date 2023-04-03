@@ -1,10 +1,10 @@
 <?php
 
-namespace DesignPatterns\Creational\FactoryMethod\Logger\FileLog;
+namespace DesignPatterns\Creational\FactoryMethod\Logger\File;
 
 use Psr\Log\LoggerInterface;
 
-class FileLogWritter implements LoggerInterface
+class FileLogWriter implements LoggerInterface
 {
     private $file;
 

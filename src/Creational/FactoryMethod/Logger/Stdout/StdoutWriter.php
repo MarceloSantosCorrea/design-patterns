@@ -1,10 +1,10 @@
 <?php
 
-namespace DesignPatterns\Creational\FactoryMethod\Logger\StdoutLog;
+namespace DesignPatterns\Creational\FactoryMethod\Logger\Stdout;
 
 use Psr\Log\LoggerInterface;
 
-class StdoutLogWritter implements LoggerInterface
+class StdoutLogWriter implements LoggerInterface
 {
     public function emergency(\Stringable|string $message, array $context = []): void
     {
