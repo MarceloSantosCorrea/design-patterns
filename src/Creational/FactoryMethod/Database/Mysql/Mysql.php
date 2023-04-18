@@ -1,10 +1,11 @@
 <?php
 
-namespace DesignPatterns\Creational\FactoryMethod\Database;
+namespace DesignPatterns\Creational\FactoryMethod\Database\Mysql;
 
+use DesignPatterns\Creational\FactoryMethod\Database\DatabaseManagerInterface;
 use PDO;
 
-class Mysql implements DatabaseInterface
+class Mysql implements DatabaseManagerInterface
 {
     private PDO $connection;
 
