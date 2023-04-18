@@ -5,10 +5,10 @@ namespace DesignPatterns\Creational\FactoryMethod\Logger\Stdout;
 use DesignPatterns\Creational\FactoryMethod\Logger\AbstractLoggerManager;
 use Psr\Log\LoggerInterface;
 
-class StdoutLogManagerAbstract extends AbstractLoggerManager
+class StdoutManagerAbstract extends AbstractLoggerManager
 {
     protected function create(): LoggerInterface
     {
-        return new StdoutLogWriter();
+        return new StdoutWriter();
     }
 }

@@ -4,7 +4,7 @@ namespace DesignPatterns\Creational\FactoryMethod\Logger\Stdout;
 
 use Psr\Log\LoggerInterface;
 
-class StdoutLogWriter implements LoggerInterface
+class StdoutWriter implements LoggerInterface
 {
     public function emergency(\Stringable|string $message, array $context = []): void
     {

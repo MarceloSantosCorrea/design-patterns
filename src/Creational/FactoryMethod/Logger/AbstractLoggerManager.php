@@ -8,7 +8,7 @@ abstract class AbstractLoggerManager
 {
     public function log(string $level, string $message, array $context = []): void
     {
-        $writter = $this->createWritter();
+        $writter = $this->create();
 
         $date = date('d/m/Y');
 
@@ -17,5 +17,5 @@ abstract class AbstractLoggerManager
         $writter->$level($formattedMessage, $context);
     }
 
-    abstract protected function createWritter(): LoggerInterface;
+    abstract protected function create(): LoggerInterface;
 }

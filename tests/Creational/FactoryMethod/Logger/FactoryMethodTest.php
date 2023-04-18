@@ -2,8 +2,8 @@
 
 namespace Creational\FactoryMethod\Logger;
 
-use DesignPatterns\Creational\FactoryMethod\Logger\FileLog\FileLogManagerAbstract;
-use DesignPatterns\Creational\FactoryMethod\Logger\StdoutLog\StdoutLogManagerAbstract;
+use DesignPatterns\Creational\FactoryMethod\Logger\File\FileManagerAbstract;
+use DesignPatterns\Creational\FactoryMethod\Logger\Stdout\StdoutManagerAbstract;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LogLevel;
 
@@ -26,28 +26,28 @@ class FactoryMethodTest extends TestCase
         }
     }
 
-    public function test_stdout_log_manager()
+    public function test_stdout_manager()
     {
         $expected = '[' . date('d/m/Y') . '][debug]: Corrêa menagem de log';
         $this->expectOutputString($expected);
-        $logManager = new StdoutLogManagerAbstract();
+        $logManager = new StdoutManagerAbstract();
         $logManager->log(LogLevel::DEBUG, 'Corrêa menagem de log');
     }
 
-    public function test_stdout_log_manager_context()
+    public function test_stdout_manager_context()
     {
         $expected = '[' . date('d/m/Y') . '][debug]: Corrêa menagem de log Array
 (
     [message] => 1
 )';
         $this->expectOutputString($expected);
-        $logManager = new StdoutLogManagerAbstract();
+        $logManager = new StdoutManagerAbstract();
         $logManager->log(LogLevel::DEBUG, 'Corrêa menagem de log', ['message' => true]);
     }
 
-    public function test_file_log_manager()
+    public function test_file_manager()
     {
-        $logManager = new FileLogManagerAbstract($this->pathfile);
+        $logManager = new FileManagerAbstract($this->pathfile);
         $logManager->log(LogLevel::DEBUG, 'Corrêa menagem de log');
 
         $this->assertTrue(file_exists($this->pathfile));
@@ -56,9 +56,9 @@ class FactoryMethodTest extends TestCase
         $this->assertEquals($expected, file_get_contents($this->pathfile));
     }
 
-    public function test_file_log_manager_context()
+    public function test_file_manager_context()
     {
-        $logManager = new FileLogManagerAbstract($this->pathfile);
+        $logManager = new FileManagerAbstract($this->pathfile);
         $logManager->log(LogLevel::DEBUG, 'Corrêa menagem de log', ['message' => true]);
 
         $this->assertTrue(file_exists($this->pathfile));

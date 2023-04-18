@@ -4,7 +4,7 @@ namespace DesignPatterns\Creational\FactoryMethod\Logger\File;
 
 use Psr\Log\LoggerInterface;
 
-class FileLogWriter implements LoggerInterface
+class FileWriter implements LoggerInterface
 {
     private $file;
 
